@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salin Nomor Rekening</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f1e9;
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.card {
+  background: white;
+  max-width: 350px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px #00000015;
+}
+
+h2 {
+  color: #856b55;
+}
+
+.nomor {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+button {
+  background: #856b55;
+  color: white;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#pesan {
+  color: green;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Wedding Gift</h2>
+  <p>Doa restu Anda merupakan hadiah terindah bagi kami.</p>
+
+  <h3>BANK BCA</h3>
+
+  <p class="nomor" id="nomor">
+    2990925600
+  </p>
+
+  <p>A.N. M.Fany Priatama</p>
+
+  <button onclick="salinRekening()">
+    📋 SALIN NOMOR REKENING
+  </button>
+
+  <p id="pesan"></p>
+</div>
+
+<script>
+function salinRekening() {
+  const nomor = document.getElementById("nomor").innerText.trim();
+
+  navigator.clipboard.writeText(nomor)
+    .then(() => {
+      document.getElementById("pesan").innerText =
+        "✓ Nomor rekening berhasil disalin!";
+    })
+    .catch(() => {
+      document.getElementById("pesan").innerText =
+        "Gagal menyalin. Silakan coba lagi.";
+    });
+}
+</script>
+
+</body>
+</html>
